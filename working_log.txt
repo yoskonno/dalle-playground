@@ -1,0 +1,362 @@
+Code cell <3zvlOCBKFXg3>
+# %% [code]
+# !git clone https://github.com/saharmor/dalle-playground.git
+# !git -C dalle-playground/ checkout 35f78d3b51a2083ef84648433b2496aa77773c2a
+!git clone https://github.com/yoskonno/dalle-playground.git
+!pip install -r dalle-playground/backend/requirements.txt
+!pip install flask-cloudflared
+Execution output from Jan 28, 2023 8:55 PM
+22KB
+	Stream
+		Cloning into 'dalle-playground'...
+		remote: Enumerating objects: 798, done.[K
+		remote: Counting objects: 100% (141/141), done.[K
+		remote: Compressing objects: 100% (73/73), done.[K
+		remote: Total 798 (delta 82), reused 90 (delta 67), pack-reused 657[K
+		Receiving objects: 100% (798/798), 2.63 MiB | 14.41 MiB/s, done.
+		Resolving deltas: 100% (475/475), done.
+		Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+		Collecting git+https://github.com/huggingface/transformers.git@e7e6d1818a3e8d51939535ebcef687770a0304fe (from -r dalle-playground/backend/requirements.txt (line 5))
+		  Cloning https://github.com/huggingface/transformers.git (to revision e7e6d1818a3e8d51939535ebcef687770a0304fe) to /tmp/pip-req-build-r46_vzz2
+		  Running command git clone --filter=blob:none --quiet https://github.com/huggingface/transformers.git /tmp/pip-req-build-r46_vzz2
+		  Running command git rev-parse -q --verify 'sha^e7e6d1818a3e8d51939535ebcef687770a0304fe'
+		  Running command git fetch -q https://github.com/huggingface/transformers.git e7e6d1818a3e8d51939535ebcef687770a0304fe
+		  Running command git checkout -q e7e6d1818a3e8d51939535ebcef687770a0304fe
+		  Resolved https://github.com/huggingface/transformers.git to commit e7e6d1818a3e8d51939535ebcef687770a0304fe
+		  Installing build dependencies ... [?25l[?25hdone
+		  Getting requirements to build wheel ... [?25l[?25hdone
+		  Preparing metadata (pyproject.toml) ... [?25l[?25hdone
+		Collecting git+https://github.com/patil-suraj/vqgan-jax.git (from -r dalle-playground/backend/requirements.txt (line 6))
+		  Cloning https://github.com/patil-suraj/vqgan-jax.git to /tmp/pip-req-build-mhqnegtd
+		  Running command git clone --filter=blob:none --quiet https://github.com/patil-suraj/vqgan-jax.git /tmp/pip-req-build-mhqnegtd
+		  Resolved https://github.com/patil-suraj/vqgan-jax.git to commit 10ef240f8ace869e437f3c32d14898f61512db12
+		  Preparing metadata (setup.py) ... [?25l[?25hdone
+		Collecting git+https://github.com/borisdayma/dalle-mini.git (from -r dalle-playground/backend/requirements.txt (line 7))
+		  Cloning https://github.com/borisdayma/dalle-mini.git to /tmp/pip-req-build-2vtzud9_
+		  Running command git clone --filter=blob:none --quiet https://github.com/borisdayma/dalle-mini.git /tmp/pip-req-build-2vtzud9_
+		  Resolved https://github.com/borisdayma/dalle-mini.git to commit 8447d026b9752ef1f6f7b9fbe0f629398bed979c
+		  Installing build dependencies ... [?25l[?25hdone
+		  Getting requirements to build wheel ... [?25l[?25hdone
+		  Preparing metadata (pyproject.toml) ... [?25l[?25hdone
+		Collecting Flask==2.1.0
+		  Downloading Flask-2.1.0-py3-none-any.whl (95 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m95.2/95.2 KB[0m [31m4.2 MB/s[0m eta [36m0:00:00[0m
+		[?25hCollecting Flask-Cors==3.0.9
+		  Downloading Flask_Cors-3.0.9-py2.py3-none-any.whl (14 kB)
+		Collecting Flask-RESTful==0.3.8
+		  Downloading Flask_RESTful-0.3.8-py2.py3-none-any.whl (25 kB)
+		Collecting flax==0.5.0
+		  Downloading flax-0.5.0-py3-none-any.whl (190 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m190.2/190.2 KB[0m [31m9.9 MB/s[0m eta [36m0:00:00[0m
+		[?25hRequirement already satisfied: tqdm in /usr/local/lib/python3.8/dist-packages (from -r dalle-playground/backend/requirements.txt (line 8)) (4.64.1)
+		Requirement already satisfied: importlib-metadata in /usr/local/lib/python3.8/dist-packages (from Flask==2.1.0->-r dalle-playground/backend/requirements.txt (line 1)) (6.0.0)
+		Collecting Werkzeug>=2.0
+		  Downloading Werkzeug-2.2.2-py3-none-any.whl (232 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m232.7/232.7 KB[0m [31m27.8 MB/s[0m eta [36m0:00:00[0m
+		[?25hCollecting Jinja2>=3.0
+		  Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m133.1/133.1 KB[0m [31m15.9 MB/s[0m eta [36m0:00:00[0m
+		[?25hCollecting click>=8.0
+		  Downloading click-8.1.3-py3-none-any.whl (96 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m96.6/96.6 KB[0m [31m13.5 MB/s[0m eta [36m0:00:00[0m
+		[?25hCollecting itsdangerous>=2.0
+		  Downloading itsdangerous-2.1.2-py3-none-any.whl (15 kB)
+		Requirement already satisfied: Six in /usr/local/lib/python3.8/dist-packages (from Flask-Cors==3.0.9->-r dalle-playground/backend/requirements.txt (line 2)) (1.15.0)
+		Collecting aniso8601>=0.82
+		  Downloading aniso8601-9.0.1-py2.py3-none-any.whl (52 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m52.8/52.8 KB[0m [31m7.1 MB/s[0m eta [36m0:00:00[0m
+		[?25hRequirement already satisfied: pytz in /usr/local/lib/python3.8/dist-packages (from Flask-RESTful==0.3.8->-r dalle-playground/backend/requirements.txt (line 3)) (2022.7)
+		Requirement already satisfied: numpy>=1.12 in /usr/local/lib/python3.8/dist-packages (from flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (1.21.6)
+		Requirement already satisfied: matplotlib in /usr/local/lib/python3.8/dist-packages (from flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (3.2.2)
+		Requirement already satisfied: typing-extensions>=4.1.1 in /usr/local/lib/python3.8/dist-packages (from flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (4.4.0)
+		Requirement already satisfied: jax>=0.3 in /usr/local/lib/python3.8/dist-packages (from flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (0.3.25)
+		Collecting optax
+		  Downloading optax-0.1.4-py3-none-any.whl (154 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m154.9/154.9 KB[0m [31m20.5 MB/s[0m eta [36m0:00:00[0m
+		[?25hRequirement already satisfied: msgpack in /usr/local/lib/python3.8/dist-packages (from flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (1.0.4)
+		Collecting huggingface-hub<1.0,>=0.10.0
+		  Downloading huggingface_hub-0.12.0-py3-none-any.whl (190 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m190.3/190.3 KB[0m [31m20.8 MB/s[0m eta [36m0:00:00[0m
+		[?25hCollecting tokenizers!=0.11.3,<0.14,>=0.11.1
+		  Downloading tokenizers-0.13.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (7.6 MB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m7.6/7.6 MB[0m [31m83.3 MB/s[0m eta [36m0:00:00[0m
+		[?25hRequirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.8/dist-packages (from transformers==4.26.0.dev0->-r dalle-playground/backend/requirements.txt (line 5)) (21.3)
+		Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.8/dist-packages (from transformers==4.26.0.dev0->-r dalle-playground/backend/requirements.txt (line 5)) (6.0)
+		Requirement already satisfied: requests in /usr/local/lib/python3.8/dist-packages (from transformers==4.26.0.dev0->-r dalle-playground/backend/requirements.txt (line 5)) (2.25.1)
+		Requirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.8/dist-packages (from transformers==4.26.0.dev0->-r dalle-playground/backend/requirements.txt (line 5)) (2022.6.2)
+		Requirement already satisfied: filelock in /usr/local/lib/python3.8/dist-packages (from transformers==4.26.0.dev0->-r dalle-playground/backend/requirements.txt (line 5)) (3.9.0)
+		Collecting unidecode
+		  Downloading Unidecode-1.3.6-py3-none-any.whl (235 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m235.9/235.9 KB[0m [31m29.7 MB/s[0m eta [36m0:00:00[0m
+		[?25hRequirement already satisfied: pillow in /usr/local/lib/python3.8/dist-packages (from dalle-mini==0.1.2->-r dalle-playground/backend/requirements.txt (line 7)) (7.1.2)
+		Collecting ftfy
+		  Downloading ftfy-6.1.1-py3-none-any.whl (53 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m53.1/53.1 KB[0m [31m3.7 MB/s[0m eta [36m0:00:00[0m
+		[?25hCollecting emoji
+		  Downloading emoji-2.2.0.tar.gz (240 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m240.9/240.9 KB[0m [31m29.0 MB/s[0m eta [36m0:00:00[0m
+		[?25h  Preparing metadata (setup.py) ... [?25l[?25hdone
+		Collecting einops
+		  Downloading einops-0.6.0-py3-none-any.whl (41 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m41.6/41.6 KB[0m [31m5.4 MB/s[0m eta [36m0:00:00[0m
+		[?25hCollecting wandb
+		  Downloading wandb-0.13.9-py2.py3-none-any.whl (2.0 MB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.0/2.0 MB[0m [31m80.8 MB/s[0m eta [36m0:00:00[0m
+		[?25hRequirement already satisfied: scipy>=1.5 in /usr/local/lib/python3.8/dist-packages (from jax>=0.3->flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (1.7.3)
+		Requirement already satisfied: opt-einsum in /usr/local/lib/python3.8/dist-packages (from jax>=0.3->flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (3.3.0)
+		Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.8/dist-packages (from Jinja2>=3.0->Flask==2.1.0->-r dalle-playground/backend/requirements.txt (line 1)) (2.0.1)
+		Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /usr/local/lib/python3.8/dist-packages (from packaging>=20.0->transformers==4.26.0.dev0->-r dalle-playground/backend/requirements.txt (line 5)) (3.0.9)
+		Collecting MarkupSafe>=2.0
+		  Downloading MarkupSafe-2.1.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+		Requirement already satisfied: wcwidth>=0.2.5 in /usr/local/lib/python3.8/dist-packages (from ftfy->dalle-mini==0.1.2->-r dalle-playground/backend/requirements.txt (line 7)) (0.2.5)
+		Requirement already satisfied: zipp>=0.5 in /usr/local/lib/python3.8/dist-packages (from importlib-metadata->Flask==2.1.0->-r dalle-playground/backend/requirements.txt (line 1)) (3.11.0)
+		Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.8/dist-packages (from matplotlib->flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (0.11.0)
+		Requirement already satisfied: kiwisolver>=1.0.1 in /usr/local/lib/python3.8/dist-packages (from matplotlib->flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (1.4.4)
+		Requirement already satisfied: python-dateutil>=2.1 in /usr/local/lib/python3.8/dist-packages (from matplotlib->flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (2.8.2)
+		Collecting chex>=0.1.5
+		  Downloading chex-0.1.5-py3-none-any.whl (85 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m85.3/85.3 KB[0m [31m11.0 MB/s[0m eta [36m0:00:00[0m
+		[?25hRequirement already satisfied: absl-py>=0.7.1 in /usr/local/lib/python3.8/dist-packages (from optax->flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (1.3.0)
+		Requirement already satisfied: jaxlib>=0.1.37 in /usr/local/lib/python3.8/dist-packages (from optax->flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (0.3.25+cuda11.cudnn805)
+		Requirement already satisfied: idna<3,>=2.5 in /usr/local/lib/python3.8/dist-packages (from requests->transformers==4.26.0.dev0->-r dalle-playground/backend/requirements.txt (line 5)) (2.10)
+		Requirement already satisfied: urllib3<1.27,>=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests->transformers==4.26.0.dev0->-r dalle-playground/backend/requirements.txt (line 5)) (1.24.3)
+		Requirement already satisfied: chardet<5,>=3.0.2 in /usr/local/lib/python3.8/dist-packages (from requests->transformers==4.26.0.dev0->-r dalle-playground/backend/requirements.txt (line 5)) (4.0.0)
+		Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.8/dist-packages (from requests->transformers==4.26.0.dev0->-r dalle-playground/backend/requirements.txt (line 5)) (2022.12.7)
+		Collecting docker-pycreds>=0.4.0
+		  Downloading docker_pycreds-0.4.0-py2.py3-none-any.whl (9.0 kB)
+		Collecting sentry-sdk>=1.0.0
+		  Downloading sentry_sdk-1.14.0-py2.py3-none-any.whl (178 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m178.9/178.9 KB[0m [31m23.4 MB/s[0m eta [36m0:00:00[0m
+		[?25hRequirement already satisfied: setuptools in /usr/local/lib/python3.8/dist-packages (from wandb->dalle-mini==0.1.2->-r dalle-playground/backend/requirements.txt (line 7)) (57.4.0)
+		Requirement already satisfied: psutil>=5.0.0 in /usr/local/lib/python3.8/dist-packages (from wandb->dalle-mini==0.1.2->-r dalle-playground/backend/requirements.txt (line 7)) (5.4.8)
+		Collecting setproctitle
+		  Downloading setproctitle-1.3.2-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (31 kB)
+		Requirement already satisfied: appdirs>=1.4.3 in /usr/local/lib/python3.8/dist-packages (from wandb->dalle-mini==0.1.2->-r dalle-playground/backend/requirements.txt (line 7)) (1.4.4)
+		Collecting pathtools
+		  Downloading pathtools-0.1.2.tar.gz (11 kB)
+		  Preparing metadata (setup.py) ... [?25l[?25hdone
+		Requirement already satisfied: protobuf!=4.21.0,<5,>=3.12.0 in /usr/local/lib/python3.8/dist-packages (from wandb->dalle-mini==0.1.2->-r dalle-playground/backend/requirements.txt (line 7)) (3.19.6)
+		Collecting GitPython>=1.0.0
+		  Downloading GitPython-3.1.30-py3-none-any.whl (184 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m184.0/184.0 KB[0m [31m19.8 MB/s[0m eta [36m0:00:00[0m
+		[?25hRequirement already satisfied: dm-tree>=0.1.5 in /usr/local/lib/python3.8/dist-packages (from chex>=0.1.5->optax->flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (0.1.8)
+		Requirement already satisfied: toolz>=0.9.0 in /usr/local/lib/python3.8/dist-packages (from chex>=0.1.5->optax->flax==0.5.0->-r dalle-playground/backend/requirements.txt (line 4)) (0.12.0)
+		Collecting gitdb<5,>=4.0.1
+		  Downloading gitdb-4.0.10-py3-none-any.whl (62 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m62.7/62.7 KB[0m [31m8.1 MB/s[0m eta [36m0:00:00[0m
+		[?25hCollecting urllib3<1.27,>=1.21.1
+		  Downloading urllib3-1.26.14-py2.py3-none-any.whl (140 kB)
+		[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m140.6/140.6 KB[0m [31m18.3 MB/s[0m eta [36m0:00:00[0m
+		[?25hCollecting smmap<6,>=3.0.1
+		  Downloading smmap-5.0.0-py3-none-any.whl (24 kB)
+		Building wheels for collected packages: transformers, vqgan-jax, dalle-mini, emoji, pathtools
+		  Building wheel for transformers (pyproject.toml) ... [?25l[?25hdone
+		  Created wheel for transformers: filename=transformers-4.26.0.dev0-py3-none-any.whl size=5857667 sha256=86495f02a4533e68f82ff070aa08a1d2e80e2fa756cfe5c7152f460d4d4c5d22
+		  Stored in directory: /root/.cache/pip/wheels/b8/26/7a/ad0ba1c85ff6c7c1ca03fac8c357953635a74f4038874d526e
+		  Building wheel for vqgan-jax (setup.py) ... [?25l[?25hdone
+		  Created wheel for vqgan-jax: filename=vqgan_jax-0.0.1-py3-none-any.whl size=7798 sha256=f48210840bfdc0604c50e0b2a28a7c33d55f699a509f625d88477e30ec974772
+		  Stored in directory: /tmp/pip-ephem-wheel-cache-pt76o6k6/wheels/d5/a7/0f/b27d5c93a98bf5b8ac2ecc2f9bbba9b52f6f25b84ac63693cb
+		  Building wheel for dalle-mini (pyproject.toml) ... [?25l[?25hdone
+		  Created wheel for dalle-mini: filename=dalle_mini-0.1.2-py3-none-any.whl size=34498 sha256=a3a0194b037aec5732d3b7beb842995e8877cac09b7171ed0d07d660de3181f2
+		  Stored in directory: /tmp/pip-ephem-wheel-cache-pt76o6k6/wheels/ad/5a/a0/0d69f3f2743ad2caeb648480662983ae902efd17b715e838a9
+		  Building wheel for emoji (setup.py) ... [?25l[?25hdone
+		  Created wheel for emoji: filename=emoji-2.2.0-py3-none-any.whl size=234926 sha256=00d6f29f6e688b3263d5f7fa38f23967d349751ff8e3afcd538c76b071948467
+		  Stored in directory: /root/.cache/pip/wheels/86/62/9e/a6b27a681abcde69970dbc0326ff51955f3beac72f15696984
+		  Building wheel for pathtools (setup.py) ... [?25l[?25hdone
+		  Created wheel for pathtools: filename=pathtools-0.1.2-py3-none-any.whl size=8806 sha256=e3501c58c2fe8b02949024792a7e9bd89b2cc37b0952e05c8fb3270f4e4c6cf0
+		  Stored in directory: /root/.cache/pip/wheels/4c/8e/7e/72fbc243e1aeecae64a96875432e70d4e92f3d2d18123be004
+		Successfully built transformers vqgan-jax dalle-mini emoji pathtools
+		Installing collected packages: tokenizers, pathtools, aniso8601, urllib3, unidecode, smmap, setproctitle, MarkupSafe, itsdangerous, ftfy, emoji, einops, docker-pycreds, click, Werkzeug, sentry-sdk, Jinja2, gitdb, huggingface-hub, GitPython, Flask, chex, wandb, transformers, optax, Flask-RESTful, Flask-Cors, flax, vqgan-jax, dalle-mini
+		  Attempting uninstall: urllib3
+		    Found existing installation: urllib3 1.24.3
+		    Uninstalling urllib3-1.24.3:
+		      Successfully uninstalled urllib3-1.24.3
+		  Attempting uninstall: MarkupSafe
+		    Found existing installation: MarkupSafe 2.0.1
+		    Uninstalling MarkupSafe-2.0.1:
+		      Successfully uninstalled MarkupSafe-2.0.1
+		  Attempting uninstall: itsdangerous
+		    Found existing installation: itsdangerous 1.1.0
+		    Uninstalling itsdangerous-1.1.0:
+		      Successfully uninstalled itsdangerous-1.1.0
+		  Attempting uninstall: click
+		    Found existing installation: click 7.1.2
+		    Uninstalling click-7.1.2:
+		      Successfully uninstalled click-7.1.2
+		  Attempting uninstall: Werkzeug
+		    Found existing installation: Werkzeug 1.0.1
+		    Uninstalling Werkzeug-1.0.1:
+		      Successfully uninstalled Werkzeug-1.0.1
+		  Attempting uninstall: Jinja2
+		    Found existing installation: Jinja2 2.11.3
+		    Uninstalling Jinja2-2.11.3:
+		      Successfully uninstalled Jinja2-2.11.3
+		  Attempting uninstall: Flask
+		    Found existing installation: Flask 1.1.4
+		    Uninstalling Flask-1.1.4:
+		      Successfully uninstalled Flask-1.1.4
+		[31mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+		notebook 5.7.16 requires jinja2<=3.0.0, but you have jinja2 3.1.2 which is incompatible.[0m[31m
+		[0mSuccessfully installed Flask-2.1.0 Flask-Cors-3.0.9 Flask-RESTful-0.3.8 GitPython-3.1.30 Jinja2-3.1.2 MarkupSafe-2.1.2 Werkzeug-2.2.2 aniso8601-9.0.1 chex-0.1.5 click-8.1.3 dalle-mini-0.1.2 docker-pycreds-0.4.0 einops-0.6.0 emoji-2.2.0 flax-0.5.0 ftfy-6.1.1 gitdb-4.0.10 huggingface-hub-0.12.0 itsdangerous-2.1.2 optax-0.1.4 pathtools-0.1.2 sentry-sdk-1.14.0 setproctitle-1.3.2 smmap-5.0.0 tokenizers-0.13.2 transformers-4.26.0.dev0 unidecode-1.3.6 urllib3-1.26.14 vqgan-jax-0.0.1 wandb-0.13.9
+		Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+		Collecting flask-cloudflared
+		  Downloading flask_cloudflared-0.0.10-py3-none-any.whl (5.9 kB)
+		Requirement already satisfied: requests in /usr/local/lib/python3.8/dist-packages (from flask-cloudflared) (2.25.1)
+		Requirement already satisfied: Flask>=0.8 in /usr/local/lib/python3.8/dist-packages (from flask-cloudflared) (2.1.0)
+		Requirement already satisfied: click>=8.0 in /usr/local/lib/python3.8/dist-packages (from Flask>=0.8->flask-cloudflared) (8.1.3)
+		Requirement already satisfied: Jinja2>=3.0 in /usr/local/lib/python3.8/dist-packages (from Flask>=0.8->flask-cloudflared) (3.1.2)
+		Requirement already satisfied: itsdangerous>=2.0 in /usr/local/lib/python3.8/dist-packages (from Flask>=0.8->flask-cloudflared) (2.1.2)
+		Requirement already satisfied: Werkzeug>=2.0 in /usr/local/lib/python3.8/dist-packages (from Flask>=0.8->flask-cloudflared) (2.2.2)
+		Requirement already satisfied: importlib-metadata in /usr/local/lib/python3.8/dist-packages (from Flask>=0.8->flask-cloudflared) (6.0.0)
+		Requirement already satisfied: idna<3,>=2.5 in /usr/local/lib/python3.8/dist-packages (from requests->flask-cloudflared) (2.10)
+		Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.8/dist-packages (from requests->flask-cloudflared) (2022.12.7)
+		Requirement already satisfied: chardet<5,>=3.0.2 in /usr/local/lib/python3.8/dist-packages (from requests->flask-cloudflared) (4.0.0)
+		Requirement already satisfied: urllib3<1.27,>=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests->flask-cloudflared) (1.26.14)
+		Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.8/dist-packages (from Jinja2>=3.0->Flask>=0.8->flask-cloudflared) (2.1.2)
+		Requirement already satisfied: zipp>=0.5 in /usr/local/lib/python3.8/dist-packages (from importlib-metadata->Flask>=0.8->flask-cloudflared) (3.11.0)
+		Installing collected packages: flask-cloudflared
+		Successfully installed flask-cloudflared-0.0.10
+
+Code cell <vrDxWeVxGb5t>
+# %% [code]
+#@title Select a model - remember to execute cell after selecting!
+
+dalle_model = 'Mega_full' #@param ["Mini", "Mega", "Mega_full"]
+
+
+Code cell <jgShmcqvG0q0>
+# %% [code]
+from threading import Thread, Event
+from google.colab import drive
+
+app_port = 8000
+announce_url = None
+cloudflared_startup = Event()
+
+def update_announce_url(url):
+    global announce_url
+    announce_url = url
+
+def start_cloudflared(port):
+  from flask_cloudflared import _run_cloudflared
+  try:
+    announce_url = _run_cloudflared(port)
+  except:
+    raise
+  finally:
+    update_announce_url(announce_url)
+    cloudflared_startup.set()
+
+def run_with_cloudflared(thread):
+    old_run = thread.run
+
+    def new_run(*args, **kwargs):
+        new_thread = Thread(target = start_cloudflared, args=(app_port,))
+        new_thread.setDaemon(True)
+        new_thread.start()
+        old_run(*args, **kwargs)
+
+    thread.run = new_run
+
+def app():
+  drive.mount('/content/drive')
+  print(f"Selected DALL-E Model - [{dalle_model}]")
+  !python dalle-playground/backend/app.py --port {app_port} --model_version {dalle_model} --save_to_disk true --img_format jpeg --output_dir '/content/drive/My Drive/dalle/gen1'
+
+if __name__ == '__main__':
+    t1 = Thread(target = app)
+    run_with_cloudflared(t1)
+    t1.start()
+    cloudflared_startup.wait()
+    print(f"Your url is: {announce_url}")
+    t1.join()
+Execution output
+9KB
+	Stream
+		Your url is: https://amenities-wn-forestry-jewel.trycloudflare.com
+		Mounted at /content/drive
+		Selected DALL-E Model - [Mega_full]
+		--> Starting DALL-E Server. This might take up to two minutes.
+		/usr/local/lib/python3.8/dist-packages/flax/core/lift.py:112: FutureWarning: jax.tree_flatten is deprecated, and will be removed in a future release. Use jax.tree_util.tree_flatten instead.
+		  scopes, treedef = jax.tree_flatten(scope_tree)
+		/usr/local/lib/python3.8/dist-packages/flax/core/lift.py:724: FutureWarning: jax.tree_leaves is deprecated, and will be removed in a future release. Use jax.tree_util.tree_leaves instead.
+		  lengths = set(jax.tree_leaves(lengths))
+		/usr/local/lib/python3.8/dist-packages/flax/core/axes_scan.py:131: FutureWarning: jax.tree_flatten is deprecated, and will be removed in a future release. Use jax.tree_util.tree_flatten instead.
+		  in_avals, in_tree = jax.tree_flatten(input_avals)
+		/usr/local/lib/python3.8/dist-packages/flax/linen/transforms.py:247: FutureWarning: jax.tree_leaves is deprecated, and will be removed in a future release. Use jax.tree_util.tree_leaves instead.
+		  jax.tree_leaves(tree)))
+		/usr/local/lib/python3.8/dist-packages/flax/core/axes_scan.py:143: FutureWarning: jax.tree_unflatten is deprecated, and will be removed in a future release. Use jax.tree_util.tree_unflatten instead.
+		  broadcast_in, constants_out = jax.tree_unflatten(out_tree(), out_flat)
+		/usr/local/lib/python3.8/dist-packages/flax/core/lift.py:112: FutureWarning: jax.tree_flatten is deprecated, and will be removed in a future release. Use jax.tree_util.tree_flatten instead.
+		  scopes, treedef = jax.tree_flatten(scope_tree)
+		/usr/local/lib/python3.8/dist-packages/flax/core/lift.py:724: FutureWarning: jax.tree_leaves is deprecated, and will be removed in a future release. Use jax.tree_util.tree_leaves instead.
+		  lengths = set(jax.tree_leaves(lengths))
+		/usr/local/lib/python3.8/dist-packages/flax/core/axes_scan.py:131: FutureWarning: jax.tree_flatten is deprecated, and will be removed in a future release. Use jax.tree_util.tree_flatten instead.
+		  in_avals, in_tree = jax.tree_flatten(input_avals)
+		/usr/local/lib/python3.8/dist-packages/flax/linen/transforms.py:247: FutureWarning: jax.tree_leaves is deprecated, and will be removed in a future release. Use jax.tree_util.tree_leaves instead.
+		  jax.tree_leaves(tree)))
+		/usr/local/lib/python3.8/dist-packages/flax/core/axes_scan.py:143: FutureWarning: jax.tree_unflatten is deprecated, and will be removed in a future release. Use jax.tree_util.tree_unflatten instead.
+		  broadcast_in, constants_out = jax.tree_unflatten(out_tree(), out_flat)
+		tcmalloc: large alloc 10350092288 bytes == 0x7fcdfd63e000 @  0x7fd1d2e12680 0x7fd1d2e33824 0x5f97c1 0x649901 0x5c43c6 0x4f327e 0x64e618 0x505163 0x56bbe1 0x569d8a 0x5f60c3 0x50b32c 0x5f52b2 0x56d2bc 0x569d8a 0x50b3a0 0x56cc92 0x5f5ee6 0x59c39d 0x5f666f 0x570d34 0x569d8a 0x68e267 0x67d9b1 0x67da2f 0x67dad1 0x67fbf7 0x6b8082 0x6b840d 0x7fd1d2c11083 0x5faa2e
+		Downloading (…)69b677a9/config.json: 100% 434/434 [00:00<00:00, 67.7kB/s]
+		Downloading (…)flax_model.msgpack";: 100% 304M/304M [00:01<00:00, 199MB/s]
+		Downloading (…)ords-frequency.txt";: 100% 34.2M/34.2M [00:00<00:00, 158MB/s]
+		/usr/local/lib/python3.8/dist-packages/flax/core/scope.py:740: FutureWarning: jax.tree_leaves is deprecated, and will be removed in a future release. Use jax.tree_util.tree_leaves instead.
+		  abs_value_flat = jax.tree_leaves(abs_value)
+		/usr/local/lib/python3.8/dist-packages/flax/core/scope.py:741: FutureWarning: jax.tree_leaves is deprecated, and will be removed in a future release. Use jax.tree_util.tree_leaves instead.
+		  value_flat = jax.tree_leaves(value)
+		/usr/local/lib/python3.8/dist-packages/flax/core/scope.py:740: FutureWarning: jax.tree_leaves is deprecated, and will be removed in a future release. Use jax.tree_util.tree_leaves instead.
+		  abs_value_flat = jax.tree_leaves(abs_value)
+		/usr/local/lib/python3.8/dist-packages/flax/core/scope.py:741: FutureWarning: jax.tree_leaves is deprecated, and will be removed in a future release. Use jax.tree_util.tree_leaves instead.
+		  value_flat = jax.tree_leaves(value)
+		/usr/local/lib/python3.8/dist-packages/flax/core/lift.py:112: FutureWarning: jax.tree_flatten is deprecated, and will be removed in a future release. Use jax.tree_util.tree_flatten instead.
+		  scopes, treedef = jax.tree_flatten(scope_tree)
+		/usr/local/lib/python3.8/dist-packages/flax/core/lift.py:724: FutureWarning: jax.tree_leaves is deprecated, and will be removed in a future release. Use jax.tree_util.tree_leaves instead.
+		  lengths = set(jax.tree_leaves(lengths))
+		/usr/local/lib/python3.8/dist-packages/flax/core/axes_scan.py:131: FutureWarning: jax.tree_flatten is deprecated, and will be removed in a future release. Use jax.tree_util.tree_flatten instead.
+		  in_avals, in_tree = jax.tree_flatten(input_avals)
+		/usr/local/lib/python3.8/dist-packages/flax/linen/transforms.py:247: FutureWarning: jax.tree_leaves is deprecated, and will be removed in a future release. Use jax.tree_util.tree_leaves instead.
+		  jax.tree_leaves(tree)))
+		/usr/local/lib/python3.8/dist-packages/flax/core/axes_scan.py:143: FutureWarning: jax.tree_unflatten is deprecated, and will be removed in a future release. Use jax.tree_util.tree_unflatten instead.
+		  broadcast_in, constants_out = jax.tree_unflatten(out_tree(), out_flat)
+		/usr/local/lib/python3.8/dist-packages/jax/_src/ops/scatter.py:87: FutureWarning: scatter inputs have incompatible types: cannot safely cast value from dtype=float16 to dtype=float32. In future JAX releases this will result in an error.
+		  warnings.warn("scatter inputs have incompatible types: cannot safely cast "
+		--> DALL-E Server is up and running!
+		--> Model selected - DALL-E ModelSize.MEGA_FULL
+		 * Serving Flask app 'app' (lazy loading)
+		 * Environment: production
+		[31m   WARNING: This is a development server. Do not use it in a production deployment.[0m
+		[2m   Use a production WSGI server instead.[0m
+		 * Debug mode: off
+		INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+		 * Running on all addresses (0.0.0.0)
+		 * Running on http://127.0.0.1:8000
+		 * Running on http://172.28.0.12:8000
+		INFO:werkzeug:[33mPress CTRL+C to quit[0m
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:00:22] "GET / HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:00:23] "HEAD / HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:00:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:01:14] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:01:58] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:02:42] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:03:26] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:04:10] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:04:54] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:05:38] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:06:22] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:07:06] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:07:50] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:08:34] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:09:18] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:10:02] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:10:45] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:11:29] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:12:13] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:12:57] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:13:41] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:14:25] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 12:15:09] "POST /dalle HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 15:11:08] "GET / HTTP/1.1" 200 -
+		INFO:werkzeug:127.0.0.1 - - [28/Jan/2023 15:11:10] "HEAD / HTTP/1.1" 200 -
+
+
