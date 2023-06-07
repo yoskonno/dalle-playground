@@ -1,21 +1,22 @@
 import requests
 import json
+from datetime import datetime
 
-num_requests = 100
+num_requests = 50
 i = 1
 
 # "a real skull on black background"
 # "a human skull on black background","num_images"
 
-CLOUDFLARE_URL = 'https://cooking-impaired-sand-failures.trycloudflare.com/'
+CLOUDFLARE_URL = 'https://moved-fixes-looked-names.trycloudflare.com'
 
 while i <= num_requests:
     data = {"text":"skull on a black background","num_images":10}
     headers = {'Content-Type': 'application/json'}
 
-    response = requests.post(CLOUDFLARE_URL + 'dalle', data=json.dumps(data), headers=headers)
+    response = requests.post(CLOUDFLARE_URL + '/dalle', data=json.dumps(data), headers=headers)
 
     # parse the response and check if you need to continue making requests
-    print(f"{response.json()} {i}/{num_requests}")
+    print(f"{response.json()} {i}/{num_requests} - {datetime.now().strftime('%H:%M:%S %d-%m-%Y')}")
 
     i += 1
