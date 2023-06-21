@@ -2,16 +2,16 @@ import requests
 import json
 from datetime import datetime
 
-num_requests = 50
+num_requests = 100
 i = 1
 
 # "a real skull on black background"
 # "a human skull on black background","num_images"
 
-CLOUDFLARE_URL = 'https://presently-mambo-seattle-dc.trycloudflare.com'
+CLOUDFLARE_URL = 'https://serves-construction-cluster-fork.trycloudflare.com'
 
 while i <= num_requests:
-    data = {"text":"skull image on a black background","num_images":10}
+    data = {"text":"skull on a black background","num_images":8}
     headers = {'Content-Type': 'application/json'}
 
     response = requests.post(CLOUDFLARE_URL + '/dalle', data=json.dumps(data), headers=headers)
