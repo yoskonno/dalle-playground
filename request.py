@@ -2,13 +2,13 @@ import requests
 import json
 from datetime import datetime
 
-num_requests = 100
+num_requests = 50
 i = 1
 
 # "a real skull on black background"
 # "a human skull on black background","num_images"
 
-CLOUDFLARE_URL = 'https://combat-jacob-there-discover.trycloudflare.com'
+CLOUDFLARE_URL = 'https://presently-mambo-seattle-dc.trycloudflare.com'
 
 while i <= num_requests:
     data = {"text":"skull image on a black background","num_images":10}
