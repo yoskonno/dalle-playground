@@ -3,7 +3,7 @@ Flask-Cors==3.0.9
 Flask-RESTful==0.3.8
 flax==0.5.0
 jax==0.4.11
-jaxlib=0.4.11
+jaxlib==0.4.11
 # jaxlib==0.3.15
 git+https://github.com/huggingface/transformers.git@e7e6d1818a3e8d51939535ebcef687770a0304fe
 git+https://github.com/patil-suraj/vqgan-jax.git@10ef240f8ace869e437f3c32d14898f61512db12
