@@ -5,9 +5,10 @@ flax==0.6.1  #0.5.0
 jax==0.4.10
 jaxlib==0.4.10
 # jaxlib==0.3.15
-git+https://github.com/huggingface/transformers.git@e7e6d1818a3e8d51939535ebcef687770a0304fe
+git+https://github.com/huggingface/transformers.git@a9eee2ffecc874df7dd635b2c6abb246fdb318cc
 git+https://github.com/patil-suraj/vqgan-jax.git@10ef240f8ace869e437f3c32d14898f61512db12
 git+https://github.com/borisdayma/dalle-mini.git@dd740e6d84bbb24769878698b1800e1304d27800
 tqdm
 
+# transformers e7e
 # foo
