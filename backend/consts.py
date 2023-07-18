@@ -5,7 +5,7 @@ DEFAULT_IMG_OUTPUT_DIR = 'generations'
 DALLE_MODEL_MINI = "dalle-mini/dalle-mini/mini-1:v0"  # the original DALL-E Mini. Fastest yet suboptimal results
 DALLE_MODEL_MEGA = "dalle-mini/dalle-mini/mega-1-fp16:latest"  # the advanced version of DALL-E Mini. Requires more compute and VRAM
 DALLE_MODEL_MEGA_FULL = "dalle-mini/dalle-mini/mega-1:latest"  # DALL-E Mega. Warning: requires significantly more storage and GPU RAM
-DALLE_COMMIT_ID = "90537ecffcf6238d0569ae537c71f5afa77d76e3" # None
+DALLE_COMMIT_ID = "dd740e6d84bbb24769878698b1800e1304d27800" # "90537ecffcf6238d0569ae537c71f5afa77d76e3" # None
 
 # VQGAN model
 VQGAN_REPO = "dalle-mini/vqgan_imagenet_f16_16384"
